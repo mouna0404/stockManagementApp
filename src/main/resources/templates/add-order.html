@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html
+  lang="en"
+  dir="ltr"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="utf-8" />
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="nav.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section>
+      <div class="area"></div>
+      <nav class="main-menu">
+        <ul>
+          <li>
+            <a href="https://jbfarrow.com">
+              <i class="fa fa-home fa-2x"></i>
+              <span class="nav-text"> Home </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="#">
+              <i class="fa fa-users fa-2x"></i>
+              <span class="nav-text"> Suppliers </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="#">
+              <i class="fa fa-shopping-cart fa-2x"></i>
+              <span class="nav-text"> Products </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="#">
+              <i class="fa fa-file fa-2x"></i>
+              <span class="nav-text"> Orders </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <h2>Orders/ Add Order</h2>
+    <section>
+      <div class="container">
+        <form action="/action_page.php">
+          <div class="row">
+            <div class="col-25">
+              <label for="productName"> Product Name</label>
+            </div>
+            <div class="col-75">
+              <select id="productName" name="productName" required>
+                <option value="none">None</option>
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="supplierName"> Supplier Name</label>
+            </div>
+            <div class="col-75">
+              <select id="supplierName" name="supplierName" required>
+                <option value="none">None</option>
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="quantity">Quantity</label>
+            </div>
+            <div class="col-75">
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                required
+                min="1"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="date">Date</label>
+            </div>
+            <div class="col-75">
+              <input type="date" id="date" name="date" required />
+            </div>
+          </div>
+
+          <br />
+          <div class="row">
+            <input type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

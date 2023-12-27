@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <title>Sider Menu Bar CSS</title> -->
+    <link rel="stylesheet" href="table.css" />
+    <link rel="stylesheet" href="nav.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <section>
+      <div class="area"></div>
+      <nav class="main-menu">
+        <ul>
+          <li>
+            <a href="/index">
+              <i class="fa fa-home fa-2x"></i>
+              <span class="nav-text"> Home </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="/suppliers">
+              <i class="fa fa-users fa-2x"></i>
+              <span class="nav-text"> Suppliers </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="/products">
+              <i class="fa fa-shopping-cart fa-2x"></i>
+              <span class="nav-text"> Products </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="#">
+              <i class="fa fa-file fa-2x"></i>
+              <span class="nav-text"> Orders </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <h2>Products/</h2>
+    <section>
+      <button id="add">Add new product</button>
+      <table id="products">
+        <tr>
+          <th>Product ID</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Category</th>
+        </tr>
+        <tr th:if="${#lists.isEmpty(products)}">
+          <td colspan="5">No Records found !</td>
+        </tr>
+        <tr th:each="product : ${products}">
+          <td th:text="${product.productId}"></td>
+          <td th:text="${product.productName}"></td>
+          <td th:text="${product.price}"></td>
+          <td th:text="${product.category}"></td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</html>
