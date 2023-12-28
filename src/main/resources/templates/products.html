@@ -35,7 +35,7 @@
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/orders">
               <i class="fa fa-file fa-2x"></i>
               <span class="nav-text"> Orders </span>
             </a>
@@ -45,7 +45,9 @@
     </section>
     <h2>Products/</h2>
     <section>
-      <button id="add">Add new product</button>
+      <form method="get" th:action="@{/addProduct}">
+        <button id="add" type="submit">Add new product</button>
+      </form>
       <table id="products">
         <tr>
           <th>Product ID</th>
@@ -60,7 +62,7 @@
           <td th:text="${product.productId}"></td>
           <td th:text="${product.productName}"></td>
           <td th:text="${product.price}"></td>
-          <td th:text="${product.category}"></td>
+          <td th:text="${product.category?.categoryName}"></td>
         </tr>
       </table>
     </section>

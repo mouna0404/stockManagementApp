@@ -22,25 +22,25 @@
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="https://jbfarrow.com">
+            <a href="/index">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Home </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/suppliers">
               <i class="fa fa-users fa-2x"></i>
               <span class="nav-text"> Suppliers </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/products">
               <i class="fa fa-shopping-cart fa-2x"></i>
               <span class="nav-text"> Products </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/orders">
               <i class="fa fa-file fa-2x"></i>
               <span class="nav-text"> Orders </span>
             </a>
@@ -51,30 +51,34 @@
     <h2>Orders/ Add Order</h2>
     <section>
       <div class="container">
-        <form action="/action_page.php">
+        <form method="post" th:action="@{/addOrder}" th:object="${OrdertData}">
           <div class="row">
             <div class="col-25">
-              <label for="productName"> Product Name</label>
+              <label for="product"> Product Name</label>
             </div>
             <div class="col-75">
-              <select id="productName" name="productName" required>
-                <option value="none">None</option>
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
+              <select id="product" name="product" required>
+                <option value="" hidden>Select a product</option>
+                <option
+                  th:each="p : ${products}"
+                  th:value="${p.productId}"
+                  th:text="${p.productName}"
+                ></option>
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col-25">
-              <label for="supplierName"> Supplier Name</label>
+              <label for="supplier"> Supplier Name</label>
             </div>
             <div class="col-75">
-              <select id="supplierName" name="supplierName" required>
-                <option value="none">None</option>
-                <option value="australia">Australia</option>
-                <option value="canada">Canada</option>
-                <option value="usa">USA</option>
+              <select id="supplier" name="supplier" required>
+                <option value="" hidden>Select a supplier</option>
+                <option
+                  th:each="s : ${suppliers}"
+                  th:value="${s.supplierId}"
+                  th:text="${s.firstName +' '+ s.lastName}"
+                ></option>
               </select>
             </div>
           </div>
@@ -94,10 +98,10 @@
           </div>
           <div class="row">
             <div class="col-25">
-              <label for="date">Date</label>
+              <label for="orderDate">Date</label>
             </div>
             <div class="col-75">
-              <input type="date" id="date" name="date" required />
+              <input type="date" id="orderDate" name="orderDate" required />
             </div>
           </div>
 

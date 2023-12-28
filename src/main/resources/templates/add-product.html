@@ -22,25 +22,25 @@
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="https://jbfarrow.com">
+            <a href="/index">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Home </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/suppliers">
               <i class="fa fa-users fa-2x"></i>
               <span class="nav-text"> Suppliers </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/products">
               <i class="fa fa-shopping-cart fa-2x"></i>
               <span class="nav-text"> Products </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/orders">
               <i class="fa fa-file fa-2x"></i>
               <span class="nav-text"> Orders </span>
             </a>
@@ -51,7 +51,11 @@
     <h2>Products/ Add product</h2>
     <section>
       <div class="container">
-        <form method="post" th:action="@{/products}" th:object="${productData}">
+        <form
+          method="post"
+          th:action="@{/addProduct}"
+          th:object="${productData}"
+        >
           <div class="row">
             <div class="col-25">
               <label for="productName">Product Name</label>
@@ -85,9 +89,7 @@
                   th:each="category : ${categories}"
                   th:value="${category.productCategoryId}"
                   th:text="${category.categoryName}"
-                >
-                  Australia
-                </option>
+                ></option>
               </select>
             </div>
           </div>

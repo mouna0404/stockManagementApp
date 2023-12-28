@@ -22,25 +22,25 @@
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="https://jbfarrow.com">
+            <a href="/index">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Home </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/suppliers">
               <i class="fa fa-users fa-2x"></i>
               <span class="nav-text"> Suppliers </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/products">
               <i class="fa fa-shopping-cart fa-2x"></i>
               <span class="nav-text"> Products </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#">
+            <a href="/orders">
               <i class="fa fa-file fa-2x"></i>
               <span class="nav-text"> Orders </span>
             </a>
@@ -50,19 +50,26 @@
     </section>
     <section>
       <h2>Orders/</h2>
-      <button id="add">Add new product</button>
+      <form method="get" th:action="@{/addOrder}">
+        <button id="add" type="submit">Add new order</button>
+      </form>
       <table id="products">
         <tr>
-          <th>Product ID</th>
-          <th>Description</th>
-          <th>Price</th>
-          <th>Category</th>
+          <th>Order ID</th>
+          <th>Product</th>
+          <th>Supplier</th>
+          <th>Order date</th>
+          <th>Quantity</th>
         </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-          <td>xxxx</td>
+        <tr th:if="${#lists.isEmpty(orders)}">
+          <td colspan="5">No Records found !</td>
+        </tr>
+        <tr th:each="order : ${orders}">
+          <td th:text="${order.orderId}"></td>
+          <td th:text="${order.product?.productName}"></td>
+          <td th:text="${order.supplier?.firstName}"></td>
+          <td th:text="${order.orderDate}"></td>
+          <td th:text="${order.quantity}"></td>
         </tr>
       </table>
     </section>

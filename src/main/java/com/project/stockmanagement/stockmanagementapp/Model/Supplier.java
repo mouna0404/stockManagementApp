@@ -14,13 +14,13 @@ import lombok.Data;
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long SupplierId;
+    private Long supplierId;
     @Column(name = "first_name", nullable = false, length = 20)
     private String firstName;
     @Column(name = "last_name", nullable = false, length = 20)
     private String lastName;
     @Column(name = "address", nullable = false, length = 300)
-    private String Address;
+    private String address;
     @Column(name = "phone_number", nullable = false, length = 10)
     private String phoneNumber;
 }
