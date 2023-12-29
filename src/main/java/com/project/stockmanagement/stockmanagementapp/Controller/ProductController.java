@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.project.stockmanagement.stockmanagementapp.Model.Product;
 import com.project.stockmanagement.stockmanagementapp.Model.ProductCategory;
@@ -32,15 +33,7 @@ public class ProductController {
 
     @GetMapping("/addProduct")
     public String loadAddProductPage(Model model) {
-        /*
-         * // Returns hardcoded data, a real world application would return from the
-         * // database
-         * List<Book> books = new ArrayList<Book>();
-         * books.add(new Book(1, "Emma", "Jane Austen"));
-         * books.add(new Book(2, "Harry Potter", "JK Rowling"));
-         * books.add(new Book(3, "The Partner", "John Grisham"));
-         * model.addAttribute("books", books);
-         */
+
         List<ProductCategory> categories = productCategoryService.getAllCategories();
         model.addAttribute("categories", categories);
 
@@ -53,4 +46,12 @@ public class ProductController {
         // return "redirect:/products/";
         return "redirect:/products";
     }
+
+    @PostMapping("/deleteProduct")
+    public String deleteProduct(Model model, @RequestParam Long productId) {
+        productService.deleteProduct(productId);
+
+        return "redirect:/products";
+    }
+
 }

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="table.css" />
     <link rel="stylesheet" href="nav.css" />
     <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="card.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -49,6 +50,24 @@
         </ul>
       </nav>
     </section>
-    <section>HELLO I AM MOUNA</section>
+    <section style="display: flex">
+      <div class="card">
+        <div class="card-container">
+          <h4><b>Total Ordred amount by category</b></h4>
+          <div th:each="d1 : ${data1}">
+            <p th:text="${d1.category+' : '+d1.totalAmount}"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-container">
+          <h4><b>Total ordred quantity by category</b></h4>
+          <div th:each="d2 : ${data2}">
+            <p th:text="${d2.category+' : '+d2.totalQuantity}"></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

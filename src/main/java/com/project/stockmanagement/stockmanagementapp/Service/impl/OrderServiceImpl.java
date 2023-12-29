@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.project.stockmanagement.stockmanagementapp.CustomInterface.IOrdredAmountByCategory;
+import com.project.stockmanagement.stockmanagementapp.CustomInterface.IOrdredQuantityByCategory;
 import com.project.stockmanagement.stockmanagementapp.Model.Order;
 import com.project.stockmanagement.stockmanagementapp.Repository.OrderRepository;
 import com.project.stockmanagement.stockmanagementapp.Service.OrderService;
@@ -34,4 +36,20 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.deleteById(OrderId);
 
     }
+
+    @Override
+    public List<IOrdredAmountByCategory> getOrdredAmountByCategory() {
+        List<IOrdredAmountByCategory> summaryData = new ArrayList<>();
+        summaryData = orderRepository.getOrdredAmountByCategory();
+
+        return summaryData;
+    }
+
+    @Override
+    public List<IOrdredQuantityByCategory> getOrdredQuantityByCategory() {
+        List<IOrdredQuantityByCategory> summaryData = new ArrayList<>();
+        summaryData = orderRepository.getOrdredQuantityByCategory();
+        return summaryData;
+    }
+
 }

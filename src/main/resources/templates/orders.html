@@ -60,6 +60,7 @@
           <th>Supplier</th>
           <th>Order date</th>
           <th>Quantity</th>
+          <th></th>
         </tr>
         <tr th:if="${#lists.isEmpty(orders)}">
           <td colspan="5">No Records found !</td>
@@ -67,9 +68,21 @@
         <tr th:each="order : ${orders}">
           <td th:text="${order.orderId}"></td>
           <td th:text="${order.product?.productName}"></td>
-          <td th:text="${order.supplier?.firstName}"></td>
+          <td
+            th:text="${order.supplier?.firstName+' '+order.supplier?.lastName}"
+          ></td>
           <td th:text="${order.orderDate}"></td>
           <td th:text="${order.quantity}"></td>
+          <td>
+            <form
+              method="post"
+              th:action="@{/deleteOrder(orderId=${order.orderId})}"
+            >
+              <button type="submit">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          </td>
         </tr>
       </table>
     </section>

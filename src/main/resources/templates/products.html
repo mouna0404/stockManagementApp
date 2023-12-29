@@ -54,6 +54,7 @@
           <th>Description</th>
           <th>Price</th>
           <th>Category</th>
+          <th></th>
         </tr>
         <tr th:if="${#lists.isEmpty(products)}">
           <td colspan="5">No Records found !</td>
@@ -63,6 +64,16 @@
           <td th:text="${product.productName}"></td>
           <td th:text="${product.price}"></td>
           <td th:text="${product.category?.categoryName}"></td>
+          <td>
+            <form
+              method="post"
+              th:action="@{/deleteProduct(productId=${product.productId})}"
+            >
+              <button type="submit">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          </td>
         </tr>
       </table>
     </section>
