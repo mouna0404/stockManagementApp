@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.stockmanagement.stockmanagementapp.CustomInterface.IOrdredAmountByCategory;
 import com.project.stockmanagement.stockmanagementapp.CustomInterface.IOrdredQuantityByCategory;
+import com.project.stockmanagement.stockmanagementapp.CustomInterface.ITopSupplier;
 import com.project.stockmanagement.stockmanagementapp.Model.Order;
 import com.project.stockmanagement.stockmanagementapp.Repository.OrderRepository;
 import com.project.stockmanagement.stockmanagementapp.Service.OrderService;
@@ -50,6 +51,18 @@ public class OrderServiceImpl implements OrderService {
         List<IOrdredQuantityByCategory> summaryData = new ArrayList<>();
         summaryData = orderRepository.getOrdredQuantityByCategory();
         return summaryData;
+    }
+
+    @Override
+    public ITopSupplier getTopSupplier() {
+        ITopSupplier topSupplier = orderRepository.getTopSupplier();
+        return topSupplier;
+    }
+
+    @Override
+    public IOrdredQuantityByCategory getTopCategory() {
+        IOrdredQuantityByCategory topCategory = orderRepository.getTopCategory();
+        return topCategory;
     }
 
 }

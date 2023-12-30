@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -43,7 +44,22 @@ public class ProductController {
     @PostMapping("/addProduct")
     public String addProduct(Model model, @ModelAttribute Product productData) {
         productService.createProduct(productData);
-        // return "redirect:/products/";
+        return "redirect:/products";
+    }
+
+    @GetMapping("/editProduct/{productId}")
+    public String loadEditProductPage(@PathVariable Long productId, Model model) {
+
+        List<ProductCategory> categories = productCategoryService.getAllCategories();
+        Product product = productService.getProductById(productId);
+        model.addAttribute("categories", categories);
+        model.addAttribute("productData", product);
+        return "edit-product";
+    }
+
+    @PostMapping("/editProduct")
+    public String editProduct(Model model, @ModelAttribute Product productData) {
+        productService.createProduct(productData);
         return "redirect:/products";
     }
 

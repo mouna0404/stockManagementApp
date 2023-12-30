@@ -17,7 +17,7 @@
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="/index">
+            <a href="/">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Home </span>
             </a>
@@ -64,13 +64,21 @@
           <td th:text="${product.productName}"></td>
           <td th:text="${product.price}"></td>
           <td th:text="${product.category?.categoryName}"></td>
-          <td>
+          <td style="display: flex">
             <form
               method="post"
               th:action="@{/deleteProduct(productId=${product.productId})}"
             >
               <button type="submit">
                 <i class="fas fa-trash"></i>
+              </button>
+            </form>
+            <form
+              method="get"
+              th:action="@{'/editProduct/'+${product.productId}}"
+            >
+              <button type="submit">
+                <i class="fas fa-edit"></i>
               </button>
             </form>
           </td>

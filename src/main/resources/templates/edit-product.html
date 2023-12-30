@@ -9,8 +9,8 @@
   <head>
     <meta charset="utf-8" />
     <!-- <title>Sider Menu Bar CSS</title> -->
-    <link rel="stylesheet" href="form.css" />
-    <link rel="stylesheet" href="nav.css" />
+    <link rel="stylesheet" href="/form.css" />
+    <link rel="stylesheet" href="/nav.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -48,60 +48,64 @@
         </ul>
       </nav>
     </section>
-    <h2>Orders/ Add Order</h2>
+    <h2>Products/ Edit product</h2>
     <section>
       <div class="container">
-        <form method="post" th:action="@{/addOrder}" th:object="${OrdertData}">
+        <form
+          method="post"
+          th:action="@{/editProduct}"
+          th:object="${productData}"
+        >
+          <input
+            type="text"
+            hidden="true"
+            id="productId"
+            name="productId"
+            th:value="*{productId}"
+          />
           <div class="row">
             <div class="col-25">
-              <label for="product"> Product Name</label>
-            </div>
-            <div class="col-75">
-              <select id="product" name="product" required>
-                <option value="" hidden>Select a product</option>
-                <option
-                  th:each="p : ${products}"
-                  th:value="${p.productId}"
-                  th:text="${p.productName}"
-                ></option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="supplier"> Supplier Name</label>
-            </div>
-            <div class="col-75">
-              <select id="supplier" name="supplier" required>
-                <option value="" hidden>Select a supplier</option>
-                <option
-                  th:each="s : ${suppliers}"
-                  th:value="${s.supplierId}"
-                  th:text="${s.firstName +' '+ s.lastName}"
-                ></option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-25">
-              <label for="quantity">Quantity</label>
+              <label for="productName">Product Name</label>
             </div>
             <div class="col-75">
               <input
-                type="number"
-                id="quantity"
-                name="quantity"
+                type="text"
+                id="productName"
+                name="productName"
                 required
-                min="1"
+                maxlength="255"
+                th:value="${productData.productName}"
               />
             </div>
           </div>
           <div class="row">
             <div class="col-25">
-              <label for="orderDate">Date</label>
+              <label for="price">Price</label>
             </div>
             <div class="col-75">
-              <input type="date" id="orderDate" name="orderDate" required />
+              <input
+                type="text"
+                id="price"
+                name="price"
+                required
+                th:value="*{price}"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="category"> Category</label>
+            </div>
+            <div class="col-75">
+              <select id="category" name="category" required>
+                <option value="" hidden>Select a category</option>
+                <option
+                  th:each="category : ${categories}"
+                  th:value="${category.productCategoryId}"
+                  th:text="${category.categoryName}"
+                  th:selected="${category.productCategoryId==productData.category?.productCategoryId}"
+                ></option>
+              </select>
             </div>
           </div>
 
