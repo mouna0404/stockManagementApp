@@ -12,5 +12,5 @@ Cette application permet de :
   - La categorie de produit sur laquelle nous effetuons du grand nombre des commandes.  
 
 # Technologies utilisées
-Spring boot, Thymeleaf, Postgre, Spring data, Hibernate, maven 
+Spring boot, Thymeleaf, Postgre, Spring data, Hibernate, maven, HTML5, CSS3, Java
 # Demo
