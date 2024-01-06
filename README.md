@@ -14,4 +14,4 @@ Cette application permet de :
 # Technologies utilisées
 Spring boot, Thymeleaf, Postgre, Spring data, Hibernate, maven, HTML5, CSS3, Java
 # Demo
-![]([https://github.com/mouna0404/stockManagementApp/demo_stockManagementApp.gif)
+![](https://github.com/mouna0404/stockManagementApp/blob/main/demo_stockManagementApp.gif)
