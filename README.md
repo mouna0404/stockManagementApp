@@ -2,9 +2,8 @@
 Le but c'est de développer une application web de gestion de stock. 
 Cette application permet de : 
 - Consuler les données des fournisseurs. 
-- Consulter les catégories des produits.
 - Consulter, ajouter, modifier , supprimer un produit.
-- Consulter, ajouter, modifier , supprimer une commande.
+- Consulter, ajouter, supprimer une commande.
 - Avoir des résumés : 
   - Montant total commandé par catégorie.
   - Quantité totale commandée par catégorie.
