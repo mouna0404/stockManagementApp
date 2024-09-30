@@ -1,16 +1,16 @@
-# Description du projet
-Le but c'est de développer une application web de gestion de stock. 
-Cette application permet de : 
-- Consuler les données des fournisseurs. 
-- Consulter, ajouter, modifier , supprimer un produit.
-- Consulter, ajouter, supprimer une commande.
-- Avoir des résumés : 
-  - Montant total commandé par catégorie.
-  - Quantité totale commandée par catégorie.
-  - Le fournisseur avec lequel nous travaillons le plus.
-  - La categorie de produit sur laquelle nous effetuons du grand nombre des commandes.  
+# Project description 
+The aim is to develop a web-based stock management application. 
+This application allows users to:
+- View supplier data.
+- View, add, edit, and delete a product.
+- View, add, and delete an order.
+- Get summaries:
+  - Total amount ordered by category.
+  - Total quantity ordered by category.
+  - The supplier we work with the most.
+  - The product category with the highest number of orders.
 
-# Technologies utilisées
+# Technologies used
 Spring boot, Thymeleaf, Postgre, Spring data, Hibernate, maven, HTML5, CSS3, Java
 # Demo
 ![](https://github.com/mouna0404/stockManagementApp/blob/main/demo_stockManagementApp.gif)
